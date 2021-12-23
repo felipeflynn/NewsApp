@@ -1,0 +1,7 @@
+{
+  "status": "error",
+  "code": "apiKeyInvalid",
+  "message": "Your API key is invalid or incorrect. Check your Key, or go to https://newsapi.org"
+
+
+}
