@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -42,9 +44,15 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+
+
         }
     }
+}
+
+kapt{
+
+    correctErrorTypes true
 }
 
 dependencies {
@@ -55,31 +63,26 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
+    //Añadidas//
     implementation 'io.coil-kt:coil-compose:1.3.1'
-
     implementation 'androidx.navigation:navigation-compose:2.4.0-beta02'
-
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
-
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-beta01'
     implementation "com.google.dagger:hilt-android:2.38.1"
-    implementation "com.google.dagger:hilt-compiler:2.38.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    //////////
 
+    
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.38.1'
-    implementation 'com.google.dagger:hilt-compiler:2.38.1'
-
-    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
-
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+
 }

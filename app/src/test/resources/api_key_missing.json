@@ -1,7 +1,7 @@
 
 {
   "status": "error",
-  "code": "apiKeyInvalid",
+  "code": "apiKeyMissing",
   "message": "Your API key is missing, Append this to your URL"
 }
 
