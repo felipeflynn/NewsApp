@@ -10,16 +10,39 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.java.feliflynn.first.ui.theme.FirstTheme
 
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
+import dagger.hilt.android.AndroidEntryPoint
 
+object Destinations {
+    const val LIST_SCREEN = "LIST_SCREEN"
+    const val DETAILS_SCREEN = "DETAILS_SCREEN"
+}
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FirstTheme {
+            FirstTheme() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Destinations.LIST_SCREEN,
+                    ) {
+                        composable(Destinations.LIST_SCREEN) {
+                            ListScreen(navController)
+                        }
+                        composable("${Destinations.DETAILS_SCREEN}/{newTitle}") {
+                            it.arguments?.getString("newTitle")?.let { title ->
+                                DetailsScreen(title, navController)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -34,7 +57,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    FirstTheme {
+    FirstTheme(){
         Greeting("Android")
     }
 }
