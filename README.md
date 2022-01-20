@@ -6,7 +6,7 @@ Android News App with Jetpack Compose, MVVM, Dependency injection with Hilt and 
 # Screenshots
 
 
-![](/screenshots/listScreen.jpeg) 
+![List Screen](/screenshots/listScreen.jpeg) 
 
 
 
