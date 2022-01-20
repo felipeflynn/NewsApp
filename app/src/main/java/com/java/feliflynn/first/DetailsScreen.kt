@@ -73,7 +73,7 @@ fun DetailsScreen(
                     Image(
                         modifier = Modifier.fillMaxWidth().aspectRatio(16f / 9f),
                         painter = rememberImagePainter(
-                            data = new.urToImage,
+                            data = new.urlToImage,
                             builder = {
                                 placeholder(R.drawable.placeholder)
                                 error(R.drawable.placeholder)
