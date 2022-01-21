@@ -2,6 +2,9 @@
 
 Android News App with Jetpack Compose, MVVM, Dependency injection with Hilt and Unit tests
 
+In process:
+  -Implementation of Room to save favorite news
+  -search news by keyword or region
 
 # Screenshots
 
